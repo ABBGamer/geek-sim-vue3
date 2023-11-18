@@ -1,9 +1,13 @@
 <template>
-  <header>
-    <div class="logo">Симулятор компьютерщика</div>
-    <v-btn @click="toggleTheme" icon="$vuetify" variant="tonal">
-    </v-btn>
-  </header>
+    <v-app-bar :elevation="1">
+      Симулятор компьютерщика
+      <template v-slot:append>
+        <v-btn @click="toggleTheme" icon="$vuetify"></v-btn>
+      </template>
+    </v-app-bar>
+<!--    <div class="logo">Симулятор компьютерщика</div>-->
+<!--    <v-btn @click="toggleTheme" icon="$vuetify" variant="tonal">-->
+<!--    </v-btn>-->
 
 </template>
 

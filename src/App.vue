@@ -1,19 +1,20 @@
 <template>
-  <div class="wrapper">
-    <PageHeader>
-    </PageHeader>
-    <PageContent>
-      <img alt="Vue logo" src="./assets/logo.png">
-    </PageContent>
-    <PageFooter/>
-  </div>
-
+  <v-app>
+    <div class="wrapper">
+      <PageHeader>
+      </PageHeader>
+      <PageContent>
+        <img alt="Vue logo" src="./assets/logo.png">
+      </PageContent>
+      <PageFooter/>
+    </div>
+  </v-app>
 </template>
 
 <script setup>
 import PageHeader from "@/components/PageHeader.vue";
-import PageContent from "@/components/PageContent.vue";
 import PageFooter from "@/components/PageFooter.vue";
+import PageContent from "@/components/PageContent.vue";
 </script>
 
 <style>
@@ -41,5 +42,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-grow: 1;
+  height: 100vh;
+
 }
 </style>
