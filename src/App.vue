@@ -1,20 +1,30 @@
 <template>
   <v-app>
     <div class="wrapper">
-      <PageHeader/>
+      <PageHeader />
       <PageContent :name="name"/>
       <PageFooter/>
     </div>
   </v-app>
 </template>
 
-<script setup>
+<script>
 import PageHeader from "@/components/PageHeader.vue";
 import PageFooter from "@/components/PageFooter.vue";
 import PageContent from "@/components/PageContent.vue";
 import {ref} from "vue";
 
-const name = ref('Пользователь');
+export default {
+  components: {PageFooter, PageContent, PageHeader},
+  setup(){
+    const name = ref('Пользователь');
+    return {
+      name,
+    }
+  }
+
+}
+
 </script>
 
 <style>
@@ -40,14 +50,5 @@ body {
   flex-direction: column;
 }
 
-.content {
-  height: 100%;
-  padding-top: 64px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  flex-grow: 1;
 
-}
 </style>

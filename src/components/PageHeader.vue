@@ -2,6 +2,7 @@
   <v-app-bar :elevation="1">
     <div :style="{fontSize: is_mobile?'16px':'24px'}">
       Симулятор компьютерщика
+      <div style="font-size: 12px" v-if="!is_mobile"> Ваши деньги: {{money}}</div>
     </div>
     <template v-slot:append>
       <v-switch style="margin-top: 13px;" @click="toggleTheme" inset
@@ -10,16 +11,30 @@
   </v-app-bar>
 </template>
 
-<script setup>
+<script>
 import {useTheme} from "vuetify";
 import {app} from "../../app_config";
+import {money} from "@/app_store";
 
-const is_mobile = app.is_mobile
+export default {
+  setup() {
+    const theme = useTheme()
+    const toggleTheme = () => {
+      theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+    }
 
-const theme = useTheme()
-const toggleTheme = () => {
-  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+    return {
+      is_mobile:app.is_mobile,
+      theme,
+
+      money:money,
+
+      toggleTheme
+    }
+  }
 }
+
+
 </script>
 
 <style scoped>
@@ -30,10 +45,5 @@ header {
   align-items: center;
   height: 60px;
   background-color: #adadad;
-}
-
-.logo {
-  font-size: 12px;
-  font-weight: bold;
 }
 </style>
