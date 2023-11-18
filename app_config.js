@@ -1,5 +1,4 @@
 import {checkMobile} from "@/utils/helper_utils";
-import {ref} from "vue";
 
 class App {
     is_mobile = false;
