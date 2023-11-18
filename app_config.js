@@ -3,7 +3,6 @@ import {ref} from "vue";
 
 class App {
     is_mobile = false;
-    theme = ref('test')
     constructor() {
         this.is_mobile = checkMobile();
     }
