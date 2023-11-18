@@ -21,4 +21,10 @@ const vuetify = createVuetify({
     },
 })
 
+if (window.navigator.userAgent.includes('Mobile')) {
+    document.querySelector("html").id = "is_mobile"
+} else {
+    document.querySelector("html").id = "is_desktop"
+}
+
 createApp(App).use(vuetify).mount('#app')

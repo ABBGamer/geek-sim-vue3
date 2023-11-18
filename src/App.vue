@@ -4,7 +4,6 @@
       <PageHeader>
       </PageHeader>
       <PageContent>
-        <img alt="Vue logo" src="./assets/logo.png">
       </PageContent>
       <PageFooter/>
     </div>

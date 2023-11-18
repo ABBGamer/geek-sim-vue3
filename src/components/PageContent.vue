@@ -12,6 +12,7 @@
 
 <script>
 import {ref} from "vue";
+import {app} from "../../app_config";
 
 export default {
   setup() {
@@ -21,6 +22,8 @@ export default {
       console.log(money)
     }
     return {
+      is_mobile: app.is_mobile,
+
       money,
       addMoney
     }
