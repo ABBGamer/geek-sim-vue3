@@ -4,8 +4,14 @@
   </v-footer>
 </template>
 
-<script setup>
-const year = new Date().getFullYear()
+<script>
+export default {
+  setup() {
+    return {
+      year: new Date().getFullYear()
+    }
+  }
+}
 </script>
 
 <style scoped>

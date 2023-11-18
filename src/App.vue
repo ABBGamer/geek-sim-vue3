@@ -12,19 +12,15 @@
 import PageHeader from "@/components/PageHeader.vue";
 import PageFooter from "@/components/PageFooter.vue";
 import PageContent from "@/components/PageContent.vue";
-import {ref} from "vue";
 
 export default {
   components: {PageFooter, PageContent, PageHeader},
   setup(){
-    const name = ref('Пользователь');
     return {
-      name,
+      name:"Пользователь",
     }
   }
-
 }
-
 </script>
 
 <style>
@@ -49,6 +45,4 @@ body {
 .wrapper {
   flex-direction: column;
 }
-
-
 </style>

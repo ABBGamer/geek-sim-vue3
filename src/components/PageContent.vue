@@ -27,7 +27,6 @@
 import {app} from "../../app_config";
 import {money, price, salary} from "@/app_store";
 
-
 export default {
   props: {
     name: String,
