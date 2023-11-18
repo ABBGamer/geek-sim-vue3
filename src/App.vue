@@ -1,10 +1,8 @@
 <template>
   <v-app>
     <div class="wrapper">
-      <PageHeader>
-      </PageHeader>
-      <PageContent>
-      </PageContent>
+      <PageHeader/>
+      <PageContent :name="name"/>
       <PageFooter/>
     </div>
   </v-app>
@@ -14,6 +12,9 @@
 import PageHeader from "@/components/PageHeader.vue";
 import PageFooter from "@/components/PageFooter.vue";
 import PageContent from "@/components/PageContent.vue";
+import {ref} from "vue";
+
+const name = ref('Пользователь');
 </script>
 
 <style>
@@ -32,16 +33,21 @@ body {
 
 .wrapper {
   display: flex;
-  flex-direction: column;
   height: 100vh;
 }
 
+.wrapper {
+  flex-direction: column;
+}
+
 .content {
+  height: 100%;
+  padding-top: 64px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-grow: 1;
-  height: 100vh;
 
 }
 </style>

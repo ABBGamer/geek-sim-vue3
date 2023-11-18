@@ -1,18 +1,20 @@
 <template>
-    <v-app-bar :elevation="1">
+  <v-app-bar :elevation="1">
+    <div :style="{fontSize: is_mobile?'16px':'24px'}">
       Симулятор компьютерщика
-      <template v-slot:append>
-        <v-btn @click="toggleTheme" icon="$vuetify"></v-btn>
-      </template>
-    </v-app-bar>
-<!--    <div class="logo">Симулятор компьютерщика</div>-->
-<!--    <v-btn @click="toggleTheme" icon="$vuetify" variant="tonal">-->
-<!--    </v-btn>-->
-
+    </div>
+    <template v-slot:append>
+      <v-switch style="margin-top: 13px;" @click="toggleTheme" inset
+                :label="is_mobile?'':!theme.global.current.value.dark ? 'Cветлая' : 'Темная'"></v-switch>
+    </template>
+  </v-app-bar>
 </template>
 
 <script setup>
 import {useTheme} from "vuetify";
+import {app} from "../../app_config";
+
+const is_mobile = app.is_mobile
 
 const theme = useTheme()
 const toggleTheme = () => {

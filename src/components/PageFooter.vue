@@ -1,9 +1,11 @@
 <template>
-  <v-footer style="height: 40px !important;">2023 - Vuetify, LLC</v-footer>
+  <v-footer>
+    <small>&copy; Copyright {{ year }}, Anton Grebnev</small>
+  </v-footer>
 </template>
 
 <script setup>
-
+const year = new Date().getFullYear()
 </script>
 
 <style scoped>
