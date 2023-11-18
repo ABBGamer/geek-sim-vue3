@@ -5,35 +5,34 @@
       <div style="font-size: 12px" v-if="!is_mobile"> Ваши деньги: {{ money }}</div>
     </div>
     <template v-slot:append>
-      <v-switch style="margin-top: 13px;" @click="toggleTheme" inset
-                :label="displayLabel"></v-switch>
+      <v-switch style="margin-top: 13px;"
+                inset
+                v-model="localTheme"
+                true-value="dark"
+                false-value="light"
+                :label="displayLabel"
+      ></v-switch>
     </template>
   </v-app-bar>
 </template>
 
 <script>
-import {useTheme} from "vuetify";
 import {app} from "../../app_config";
-import {money} from "@/app_store";
+import {localTheme, money} from "@/app_store";
 import {computed} from "vue";
 
 export default {
   setup() {
     const is_mobile = app.is_mobile
-    const displayLabel = computed(() => is_mobile ? '' : !theme.global.current.value.dark ? 'Cветлая' : 'Темная')
-    const theme = useTheme()
-    const toggleTheme = () => {
-      theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
-    }
+    const displayLabel = computed(() => is_mobile ? '' : localTheme.value === "dark" ? 'Темная' : 'Cветлая')
 
     return {
       is_mobile,
-      theme,
       displayLabel,
 
       money: money,
 
-      toggleTheme
+      localTheme
     }
   }
 }

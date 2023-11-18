@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div class="wrapper">
-      <PageHeader />
+      <PageHeader/>
       <PageContent :name="name"/>
       <PageFooter/>
     </div>
@@ -12,12 +12,21 @@
 import PageHeader from "@/components/PageHeader.vue";
 import PageFooter from "@/components/PageFooter.vue";
 import PageContent from "@/components/PageContent.vue";
+import {onMounted, watch} from "vue";
+import {useTheme} from "vuetify";
+import {localTheme} from "@/app_store";
 
 export default {
   components: {PageFooter, PageContent, PageHeader},
-  setup(){
+  setup() {
+    const globalTheme = useTheme()
+    const syncTheme = () => globalTheme.global.name.value = localTheme.value
+
+    onMounted(() => syncTheme())
+
+    watch(localTheme, () => syncTheme())
     return {
-      name:"Пользователь",
+      name: "Пользователь",
     }
   }
 }
